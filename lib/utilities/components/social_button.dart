@@ -5,8 +5,8 @@ import 'package:pet_services_app/utilities/theme/text_styles.dart';
 
 import '../../base/blocs/theme_bloc.dart';
 
-class CustomBtn extends StatelessWidget {
-  const CustomBtn({
+class SocialButton extends StatelessWidget {
+  const SocialButton({
     super.key,
     this.height,
     this.width,
@@ -14,7 +14,7 @@ class CustomBtn extends StatelessWidget {
     this.text,
     this.buttonColor,
     this.textColor,
-    this.onTap,
+    this.onTap, this.imagee,
   });
 
   final double? height;
@@ -23,6 +23,8 @@ class CustomBtn extends StatelessWidget {
   final String? text;
   final Color? buttonColor;
   final Color? textColor;
+  final Widget? imagee;
+  
   final Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,16 @@ class CustomBtn extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius ?? 8),
         ),
         child: Center(
-          child: Text(
-            text ?? "Clicke here",
-            style: AppTextStyles.w700.copyWith(fontSize: 20, color: textColor ?? Colors.white),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+           imagee!,
+              SizedBox(width: 3,),
+              Text(
+                text ?? "Clicke here",
+                style: AppTextStyles.w700.copyWith(fontSize: 18, color: textColor ?? Colors.white),
+              ),
+            ],
           ),
         ),
       ),
