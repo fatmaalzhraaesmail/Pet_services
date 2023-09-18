@@ -25,6 +25,7 @@ class TextInputField extends StatefulWidget {
     // this.topIcon,
     this.top_label_text,
     this.label,
+    this.onTap,
   });
   final String? hintText;
   final String? errorText;
@@ -41,6 +42,7 @@ class TextInputField extends StatefulWidget {
   // final Widget? topIcon;
   final String? top_label_text;
   final String? label;
+  final Function()? onTap;
 
   @override
   State<TextInputField> createState() => _TextInputFieldState();
@@ -100,12 +102,16 @@ class _TextInputFieldState extends State<TextInputField> {
             });
             widget.onChange?.call(val);
           },
-          
+          onTap: () {
+            setState(() {
+              widget.onTap;
+            });
+          },
           decoration: InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade300, width: 2),
             ),
-              suffixIcon: widget.suffixIcon ?? _mapSuffixIcon(),
+            suffixIcon: widget.suffixIcon ?? _mapSuffixIcon(),
             suffixIconColor: Colors.grey,
             labelText: widget.label,
             labelStyle: TextStyle(
@@ -137,6 +143,4 @@ class _TextInputFieldState extends State<TextInputField> {
       ],
     );
   }
-
-  
 }

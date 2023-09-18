@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pet_services_app/routers/navigator.dart';
+import 'package:pet_services_app/routers/routers.dart';
 import 'package:pet_services_app/services/myaccount/bloc/cubit.dart';
 import 'package:pet_services_app/services/myaccount/bloc/state.dart';
 import 'package:pet_services_app/services/myaccount/widget/complete_profile.dart';
@@ -37,165 +39,175 @@ class _AccountScreenState extends State<AccountScreen> {
           color: Colors.white,
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: () {
+                CustomNavigator.push(Routes.accountInfo);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          image: DecorationImage(
-                              image: AssetImage(
-                                'assets/images/person.jpeg',
-                              ),
-                              fit: BoxFit.cover)),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       children: [
-                        Text(
-                          'Fatma Alzhraa Esmail',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 18),
+                        Container(
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/person.jpeg',
+                                  ),
+                                  fit: BoxFit.cover)),
                         ),
                         SizedBox(
-                          height: 6,
+                          width: 10,
                         ),
-                        Text(
-                          'fatmaesmail@gmail.com',
-                          style: TextStyle(color: Colors.grey.shade500),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Fatma Alzhraa Esmail',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w800, fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              'fatmaalzhraazedan@gmail.com',
+                              style: TextStyle(color: Colors.grey.shade500),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.grey.shade400,
+                    )
                   ],
                 ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.grey.shade400,
-                )
-              ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            indent: 20,
-            endIndent: 0,
-            color: Colors.grey.shade300,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          BlocProvider(
-              create: (BuildContext context) => CompleteProfileCubit(),
-              child: BlocConsumer<CompleteProfileCubit, CompleteProfileStates>(
-                  listener:
-                      (BuildContext context, CompleteProfileStates state) {},
-                  builder: (BuildContext context, CompleteProfileStates state) {
-                    CompleteProfileCubit cubit =
-                        CompleteProfileCubit.get(context);
-                    return Container(
-                      // width: 60,
-                      height: 130,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: cubit.completeprofilee.length,
-                          itemBuilder: (context, index) =>
-                              CompleteProfileWidget(
-                                  context, cubit.completeprofilee[index])),
-                    );
-                  })),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Divider(
+            SizedBox(
+              height: 20,
+            ),
+            Divider(
               height: 1,
               thickness: 1,
               indent: 20,
               endIndent: 0,
               color: Colors.grey.shade300,
             ),
-          ),
-          ProfileOtherServices(
-            leading: Icon(
-              Icons.favorite_border,
-              size: 30,
-              color: Colors.black,
+            SizedBox(
+              height: 10,
             ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              size: 26,
+            BlocProvider(
+                create: (BuildContext context) => CompleteProfileCubit(),
+                child: BlocConsumer<CompleteProfileCubit,
+                        CompleteProfileStates>(
+                    listener:
+                        (BuildContext context, CompleteProfileStates state) {},
+                    builder:
+                        (BuildContext context, CompleteProfileStates state) {
+                      CompleteProfileCubit cubit =
+                          CompleteProfileCubit.get(context);
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 130,
+                        child: ListView.builder(
+                            itemExtent: 130,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: cubit.completeprofilee.length,
+                            itemBuilder: (context, index) =>
+                                CompleteProfileWidget(
+                                    context, cubit.completeprofilee[index])),
+                      );
+                    })),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Divider(
+                height: 1,
+                thickness: 1,
+                indent: 20,
+                endIndent: 0,
+                color: Colors.grey.shade300,
+              ),
             ),
-            title: 'Favourite',
-            ontap: () {},
-          ),
-          ProfileOtherServices(
-            leading: Icon(
-              Icons.local_shipping_outlined,
-              size: 30,
-              color: Colors.black,
+            ProfileOtherServices(
+              leading: Icon(
+                Icons.favorite_border,
+                size: 30,
+                color: Colors.black,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 26,
+              ),
+              title: 'Favourite',
+              ontap: () {},
             ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              size: 26,
+            ProfileOtherServices(
+              leading: Icon(
+                Icons.local_shipping_outlined,
+                size: 30,
+                color: Colors.black,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 26,
+              ),
+              title: 'Transform Details',
+              ontap: () {},
             ),
-            title: 'Transform Details',
-            ontap: () {},
-          ),
-          ProfileOtherServices(
-            leading: Icon(
-              Icons.settings_suggest,
-              size: 30,
-              color: Colors.black,
+            ProfileOtherServices(
+              leading: Icon(
+                Icons.settings_suggest,
+                size: 30,
+                color: Colors.black,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 26,
+              ),
+              title: 'Settings',
+              ontap: () {},
             ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              size: 26,
+            ProfileOtherServices(
+              leading: Icon(
+                Icons.headset_mic_outlined,
+                size: 30,
+                color: Colors.black,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 26,
+              ),
+              title: 'Help Center',
+              ontap: () {},
             ),
-            title: 'Settings',
-            ontap: () {},
-          ),
-          ProfileOtherServices(
-            leading: Icon(
-              Icons.headset_mic_outlined,
-              size: 30,
-              color: Colors.black,
+            ProfileOtherServices(
+              leading: Icon(
+                Icons.error_outline_sharp,
+                size: 30,
+                color: Colors.black,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 26,
+              ),
+              title: 'About Us',
+              ontap: () {},
             ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              size: 26,
-            ),
-            title: 'Help Center',
-            ontap: () {},
-          ),
-          ProfileOtherServices(
-            leading: Icon(
-              Icons.error_outline_sharp,
-              size: 30,
-              color: Colors.black,
-            ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              size: 26,
-            ),
-            title: 'About Us',
-            ontap: () {},
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
