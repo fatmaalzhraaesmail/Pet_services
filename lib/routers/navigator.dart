@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_services_app/handlers/qr_code_scanner/qr_scanner_view.dart';
 import 'package:pet_services_app/routers/routers.dart';
-import 'package:pet_services_app/services/Auth/login.dart';
-import 'package:pet_services_app/services/Auth/phonenumberverfication.dart';
-import 'package:pet_services_app/services/Auth/register.dart';
-import 'package:pet_services_app/services/Auth/verviy.dart';
+import 'package:pet_services_app/services/Login/pages/login.dart';
+import 'package:pet_services_app/services/myaccount/pages/account_info.dart';
+import 'package:pet_services_app/services/myaccount/pages/add_new_card.dart';
+import 'package:pet_services_app/services/myaccount/pages/address.dart';
+import 'package:pet_services_app/services/myaccount/pages/history.dart';
+import 'package:pet_services_app/services/verification_code/pages/phonenumberverfication.dart';
+import 'package:pet_services_app/services/register/pages/register.dart';
+import 'package:pet_services_app/services/verification_code/pages/verviy.dart';
 import 'package:pet_services_app/services/home/pages/Navigation.dart';
 import 'package:pet_services_app/services/home/pages/home_page.dart';
 import 'package:pet_services_app/services/myaccount/pages/account.dart';
@@ -59,6 +63,14 @@ class CustomNavigator {
        return _pageRoute( TipsScreen());
       case Routes.account:
        return _pageRoute( AccountScreen());
+      case Routes.accountInfo:
+       return _pageRoute( AccountInfo());
+      case Routes.addnewpaymentCard:
+       return _pageRoute( AddNewCard());
+      case Routes.address:
+       return _pageRoute( Address());
+      case Routes.history:
+       return _pageRoute( History());
 
     }
     return MaterialPageRoute(builder: (_) => Container());

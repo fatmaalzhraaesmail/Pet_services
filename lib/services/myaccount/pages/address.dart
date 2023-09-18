@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:pet_services_app/routers/navigator.dart';
+import 'package:pet_services_app/services/myaccount/bloc/cubit.dart';
+import 'package:pet_services_app/services/myaccount/bloc/state.dart';
+import 'package:pet_services_app/services/myaccount/widget/add_address.dart';
+
+class Address extends StatefulWidget {
+  const Address({super.key});
+
+  @override
+  State<Address> createState() => _AddressState();
+}
+
+class _AddressState extends State<Address> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        title: Text(
+          'Address',
+          style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21),
+        ),
+        centerTitle: true,
+        leading: InkWell(
+            onTap: () {
+              CustomNavigator.pop();
+            },
+            child: Icon(Icons.arrow_back_ios)),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+              child: Icon(
+                Icons.add,
+                color: Colors.amber[600],
+                size: 30,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+          child: Column(
+        children: [
+          Expanded(
+              child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 12,
+                ),
+                BlocProvider(
+                    create: (BuildContext context) => CompleteProfileCubit(),
+                    child: BlocConsumer<CompleteProfileCubit,
+                            CompleteProfileStates>(
+                        listener: (BuildContext context,
+                            CompleteProfileStates state) {},
+                        builder: (BuildContext context,
+                            CompleteProfileStates state) {
+                          CompleteProfileCubit cubit =
+                              CompleteProfileCubit.get(context);
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
+                            // height: 86,
+                            child: ListView.separated(
+                                separatorBuilder: (context, index) => Divider(),
+                                scrollDirection: Axis.vertical,
+                                itemCount: cubit.addressInfo.length,
+                                itemBuilder: (context, index) => Slidable(
+                                      endActionPane: ActionPane(
+                                          motion: const BehindMotion(),
+                                          extentRatio: .28,
+                                          children: [
+                                            SlidableAction(
+                                              onPressed: (context) {},
+                                              icon: Icons.edit,
+                                              foregroundColor:
+                                                  Colors.amber[600],
+                                              autoClose: true,
+                                            ),
+                                            SlidableAction(
+                                              onPressed: (context) {},
+                                              icon: Icons.delete_outlined,
+                                              foregroundColor:
+                                                  Colors.amber[600],
+                                            )
+                                          ]),
+                                      child: AddAddressWidget(
+                                          context, cubit.addressInfo[index]),
+                                    )),
+                          );
+                        })),
+              ],
+            ),
+          ))
+        ],
+      )),
+    );
+  }
+}

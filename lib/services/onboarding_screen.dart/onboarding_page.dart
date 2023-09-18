@@ -41,22 +41,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       backgroundColor: Colors.white,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
-        child: Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.1, 0.4, 0.7, 0.9],
-                colors: [
-                  Colors.white,
-                  //  Colors.white10,
-                  Colors.white38,
-                  Colors.white60,
-                  Colors.white70,
-                ],
-              ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.1, 0.4, 0.7, 0.9],
+              colors: [
+                Colors.white,
+                //  Colors.white10,
+                Colors.white38,
+                Colors.white60,
+                Colors.white70,
+              ],
             ),
+          ),
+          child: Expanded(
             child: Stack(
               children: [
                 Column(
