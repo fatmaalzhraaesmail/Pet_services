@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/src/bloc_provider.dart' show BlocProvider, BlocProviderSingleChildWidget;
-import 'package:pet_services_app/base/blocs/lang_bloc.dart';
 
 abstract class ProviderList {
   static List<BlocProviderSingleChildWidget> providers = [

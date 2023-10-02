@@ -9,6 +9,7 @@ import 'package:pet_services_app/services/tips/model/recommended_tips.dart';
 import 'package:pet_services_app/services/tips/widget/popular_tips_widget.dart';
 import 'package:pet_services_app/services/tips/widget/recommended_tips.dart';
 import 'package:pet_services_app/utilities/components/search.dart';
+import 'package:pet_services_app/utilities/theme/media.dart';
 
 class TipsScreen extends StatelessWidget {
   @override
@@ -21,25 +22,32 @@ class TipsScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Colors.grey, Colors.black12],
+                Container(
+                  width: MediaHelper.width,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [Colors.grey, Colors.black12],
+                            ),
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  'assets/images/onboarding7.jpeg',
+                                )),
+                            borderRadius:
+                                BorderRadius.only(bottomLeft: Radius.circular(50)),
+                            color: Colors.white,
+                          ),
+                          width: MediaQuery.of(context).size.width,
+                          height: 245,
+                        ),
                       ),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            'assets/images/onboarding7.jpeg',
-                          )),
-                      borderRadius:
-                          BorderRadius.only(bottomLeft: Radius.circular(50)),
-                      color: Colors.white,
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                    height: 245,
+                    ],
                   ),
                 ),
                 Search(),
@@ -77,25 +85,32 @@ class TipsScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 15,right: 15,bottom: 8),
               child: Stack(
                 children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [ Colors.black38,Colors.black54,Colors.black87,],
+                  Container(
+                    width: MediaHelper.width,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [ Colors.black38,Colors.black54,Colors.black87,],
+                              ),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'assets/images/dogs.jpg',
+                                  )),
+                              borderRadius:
+                                  BorderRadius.circular(15),
+                              color: Colors.white,
+                            ),
+                            width: MediaQuery.of(context).size.width,
+                            height: 245,
+                          ),
                         ),
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              'assets/images/dogs.jpg',
-                            )),
-                        borderRadius:
-                            BorderRadius.circular(15),
-                        color: Colors.white,
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      height: 245,
+                      ],
                     ),
                   ),
                   Positioned(

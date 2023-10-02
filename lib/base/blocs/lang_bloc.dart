@@ -1,6 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pet_services_app/config/app_events.dart';
-import 'package:pet_services_app/config/app_states.dart';
 import 'package:pet_services_app/handlers/localization_handler.dart';
 import 'package:pet_services_app/handlers/shared_handler.dart';
 import 'package:pet_services_app/routers/navigator.dart';

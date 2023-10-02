@@ -15,7 +15,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 18, right: 18, top: 20),
+      padding:  EdgeInsets.only(left: 18, right: 18, top: 20),
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(

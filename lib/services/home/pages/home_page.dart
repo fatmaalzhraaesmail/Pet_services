@@ -29,16 +29,20 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       // height: 300,
-                        child: Expanded(
-                          child: Container(
-                            color: Colors.white,
-                            width: 297,
-                            height: 269,
-                            child: Image.asset(
-                              'assets/images/slider3.jpg',
-                              fit: BoxFit.cover,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                color: Colors.white,
+                                width: 297,
+                                height: 269,
+                                child: Image.asset(
+                                  'assets/images/slider3.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -115,7 +119,7 @@ class HomePage extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: cubit.services.length,
                             itemBuilder: (context, index) =>
-                                ServicesWidget(context, cubit.services[index])),
+                                MainFeaturesWidget(context, cubit.services[index])),
                       );
                     })),
 

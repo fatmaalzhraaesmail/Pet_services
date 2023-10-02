@@ -178,7 +178,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 size: 26,
               ),
               title: 'Settings',
-              ontap: () {},
+              ontap: () {
+                CustomNavigator.push(Routes.settings);
+              },
             ),
             ProfileOtherServices(
               leading: Icon(
