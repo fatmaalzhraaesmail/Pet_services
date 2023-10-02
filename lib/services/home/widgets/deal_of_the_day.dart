@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:pet_services_app/services/home/model/deal_of_the_day.dart';
-import 'package:pet_services_app/services/home/model/deal_of_the_day.dart';
-import 'package:pet_services_app/services/home/model/services.dart';
+
 
 Widget DealOfTheDayWidget(BuildContext context, DealOfTheDay dealOfTheDay) {
   DateTime offerEndTime = DateTime.now().add(Duration(hours: dealOfTheDay.timer.toInt() ));

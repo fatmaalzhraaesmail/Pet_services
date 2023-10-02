@@ -1,10 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:pet_services_app/base/blocs/theme_bloc.dart';
 import 'package:pet_services_app/handlers/icon_handler.dart';
 import 'package:pet_services_app/utilities/extensions/timer_formatter.dart';
 import 'package:video_player/video_player.dart';

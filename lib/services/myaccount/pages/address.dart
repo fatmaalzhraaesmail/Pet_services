@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:pet_services_app/routers/navigator.dart';
+import 'package:pet_services_app/routers/routers.dart';
 import 'package:pet_services_app/services/myaccount/bloc/cubit.dart';
 import 'package:pet_services_app/services/myaccount/bloc/state.dart';
 import 'package:pet_services_app/services/myaccount/widget/add_address.dart';
+import 'package:pet_services_app/utilities/theme/media.dart';
 
 class Address extends StatefulWidget {
   const Address({super.key});
@@ -34,6 +36,9 @@ class _AddressState extends State<Address> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: GestureDetector(
+              onTap: (){
+                CustomNavigator.push(Routes.addNewAddress);
+              },
               child: Icon(
                 Icons.add,
                 color: Colors.amber[600],
@@ -64,14 +69,15 @@ class _AddressState extends State<Address> {
                           CompleteProfileCubit cubit =
                               CompleteProfileCubit.get(context);
                           return Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
+                            width: MediaHelper.width,
+                            height: MediaHelper.height,
                             // height: 86,
                             child: ListView.separated(
-                                separatorBuilder: (context, index) => Divider(),
+                                separatorBuilder: (context, index) => SizedBox(height: 1,),
                                 scrollDirection: Axis.vertical,
                                 itemCount: cubit.addressInfo.length,
                                 itemBuilder: (context, index) => Slidable(
+
                                       endActionPane: ActionPane(
                                           motion: const BehindMotion(),
                                           extentRatio: .28,

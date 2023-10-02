@@ -50,7 +50,6 @@ class _AccountInfoState extends State<AccountInfo> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: SingleChildScrollView(

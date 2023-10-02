@@ -20,4 +20,8 @@ abstract class Routes {
   static const String addnewpaymentCard = "addnewpaymentCard";
   static const String address = "address";
   static const String history = "history";
+  static const String servicesFeature = "servicesFeature";
+  static const String shopFeature = "shopFeature";
+  static const String addNewAddress = "addNewAddress";
+  static const String settings = "settings";
 }

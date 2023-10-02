@@ -15,6 +15,8 @@ class CustomBtn extends StatelessWidget {
     this.buttonColor,
     this.textColor,
     this.onTap,
+    this.borderColor,
+    this.fontSize,
   });
 
   final double? height;
@@ -23,6 +25,8 @@ class CustomBtn extends StatelessWidget {
   final String? text;
   final Color? buttonColor;
   final Color? textColor;
+  final Color? borderColor;
+  final double? fontSize;
   final Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -31,14 +35,16 @@ class CustomBtn extends StatelessWidget {
       child: Container(
         width: width ?? MediaHelper.width,
         height: height ?? 56,
+
         decoration: BoxDecoration(
           color: buttonColor ?? themeBloc.theme.valueOrNull!.primary,
           borderRadius: BorderRadius.circular(radius ?? 8),
+          border: Border.all(color: borderColor ?? Colors.amber)
         ),
         child: Center(
           child: Text(
             text ?? "Clicke here",
-            style: AppTextStyles.w700.copyWith(fontSize: 20, color: textColor ?? Colors.white),
+            style: AppTextStyles.w700.copyWith(fontSize:fontSize ?? 20, color: textColor ?? Colors.white),
           ),
         ),
       ),

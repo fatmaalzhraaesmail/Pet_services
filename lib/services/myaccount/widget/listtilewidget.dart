@@ -17,6 +17,7 @@ class ProfileOtherServices extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: ontap,
           leading: leading,
           title: Text(title),
           trailing: trailing,

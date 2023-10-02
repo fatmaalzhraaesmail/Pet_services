@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_services_app/services/tips/model/popular_tips.dart';
 import 'package:pet_services_app/services/tips/model/recommended_tips.dart';
+import 'package:pet_services_app/utilities/theme/media.dart';
 
 Widget PopularTipsWidget(
     BuildContext context, PopularTips popularTips) {
@@ -65,18 +66,21 @@ Widget PopularTipsWidget(
               ],
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  Text('${popularTips.title}',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16),overflow: TextOverflow.ellipsis,maxLines: 1,),
-                   Text('${popularTips.descriptionPopTips}',style: TextStyle(fontSize: 16,color: Colors.grey.shade600),overflow: TextOverflow.visible,maxLines: 1,)
-                ],),
-              )
-            ],
+          Container(
+            width: MediaHelper.width,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text('${popularTips.title}',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 16),overflow: TextOverflow.ellipsis,maxLines: 1,),
+                     Text('${popularTips.descriptionPopTips}',style: TextStyle(fontSize: 16,color: Colors.grey.shade600),overflow: TextOverflow.visible,maxLines: 1,)
+                  ],),
+                )
+              ],
+            ),
           ),
 
 

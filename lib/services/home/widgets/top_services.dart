@@ -1,9 +1,6 @@
-import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:pet_services_app/services/home/model/services.dart';
 import 'package:pet_services_app/services/home/model/top_services.dart';
 
 Widget TopServicesWidget(BuildContext context, TopServices service) {

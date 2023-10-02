@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../../base/blocs/theme_bloc.dart';
 import '../../routers/navigator.dart';
 import '../../utilities/components/arrow_back.dart';
 

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_services_app/routers/navigator.dart';
-import 'package:pet_services_app/routers/routers.dart';
+
 
 class AcceptedPaymentCard {
   final String? image;
