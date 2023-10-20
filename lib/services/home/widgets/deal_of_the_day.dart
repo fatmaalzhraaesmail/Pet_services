@@ -61,7 +61,7 @@ Widget DealOfTheDayWidget(BuildContext context, DealOfTheDay dealOfTheDay) {
 class OfferTimer extends StatefulWidget {
   final DateTime offerEndTime;
 
-  OfferTimer({required this.offerEndTime});
+   const OfferTimer({required this.offerEndTime});
 
   @override
   _OfferTimerState createState() => _OfferTimerState();

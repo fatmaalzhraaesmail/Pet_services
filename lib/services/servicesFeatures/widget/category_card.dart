@@ -3,7 +3,7 @@ import 'package:pet_services_app/utilities/theme/text_styles.dart';
 
 class CategoryCard extends StatelessWidget {
 
-   CategoryCard( {
+   const CategoryCard( {
     this.isSelected = false,
     this.categori
   });
@@ -35,7 +35,7 @@ class CategoryCard extends StatelessWidget {
           Icon(Icons.abc_sharp, size: 32),
           SizedBox(height: 8),
           Text(
-            '${categori}',
+            '$categori',
             style: AppTextStyles.w500.copyWith(fontSize: 12),
           ),
         ],

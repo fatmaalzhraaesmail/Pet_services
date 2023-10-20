@@ -308,7 +308,6 @@ class CategorySelected extends CategoryState {
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   CategoryBloc() : super(CategoryInitial());
 
-  @override
   List<Category> categories = [
   Category(
     id: '1',
@@ -381,6 +380,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     ],
   ),
 ];
+  @override
   Stream<CategoryState> mapEventToState(CategoryEvent event) async* {
     if (event is SelectCategoryEvent) {
       yield CategorySelected(event.category);

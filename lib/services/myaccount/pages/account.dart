@@ -19,8 +19,8 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
+        // elevation: 0.0,
+        // backgroundColor: Colors.white,
         actions: [
           Icon(
             Icons.notifications_none_outlined,

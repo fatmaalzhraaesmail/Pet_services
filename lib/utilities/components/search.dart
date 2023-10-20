@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pet_services_app/routers/navigator.dart';
+import 'package:pet_services_app/routers/routers.dart';
 
 Widget Search() {
-    final TextEditingController _searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
 
   return Positioned(
       top: 45,
@@ -21,7 +22,7 @@ Widget Search() {
             height: 45,
             child: TextField(
               cursorColor: Colors.white,
-              controller: _searchController,
+              controller: searchController,
               decoration: InputDecoration(
                 // border: Border(bottom: BorderSide(color: Colors.w)),
                 focusedBorder: OutlineInputBorder(
@@ -43,7 +44,7 @@ Widget Search() {
                     color: Colors.white,
                     size: 27,
                   ),
-                  onPressed: () => _searchController.clear(),
+                  onPressed: () => searchController.clear(),
                 ),
                 // Add a search icon or button to the search bar
                 prefixIcon: IconButton(
@@ -64,22 +65,25 @@ Widget Search() {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 7),
-            child: Container(
-                child: Icon(
+            child: Icon(
               CupertinoIcons.bell,
               color: Colors.white,
               size: 27,
-            )),
+            ),
           ),
           SizedBox(
             width: 5,
           ),
-          Container(
-              child: Icon(
-            CupertinoIcons.cart,
-            color: Colors.white,
-            size: 27,
-          )),
+          InkWell(
+            onTap: () {
+              CustomNavigator.push(Routes.cart);
+            },
+            child: Icon(
+              CupertinoIcons.cart,
+              color: Colors.white,
+              size: 27,
+            ),
+          ),
         ],
       ));
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:pet_services_app/handlers/icon_handler.dart';
 import 'package:pet_services_app/handlers/localization_handler.dart';
 

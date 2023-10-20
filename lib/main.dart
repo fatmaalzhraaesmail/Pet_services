@@ -9,7 +9,7 @@ import 'package:pet_services_app/routers/navigator.dart';
 import 'package:pet_services_app/routers/routers.dart';
 import 'package:pet_services_app/utilities/theme/colors/colors.dart';
 import 'package:pet_services_app/utilities/theme/colors/light_theme.dart';
-
+import 'package:pet_services_app/utilities/theme/text_styles.dart';
 import 'handlers/localization_handler.dart';
 
 void main() async {
@@ -57,6 +57,17 @@ class MyApp extends StatelessWidget {
                       bodyText1: TextStyle(
                         color: Colors.black,
                       ),
+                    ),
+                    appBarTheme: AppBarTheme(
+                      centerTitle: true,
+                      backgroundColor: Colors.transparent,
+                      // foregroundColor: Colors.white,
+                      elevation: 0.0,
+                      iconTheme: IconThemeData(color: Colors.black,size: 26,),
+                      actionsIconTheme: IconThemeData(color: Colors.black,size: 26,),
+                      titleTextStyle: AppTextStyles.w700.copyWith(fontSize: 20)
+
+
                     ),
                     colorScheme: ColorScheme(
                       primary: theme.primary,

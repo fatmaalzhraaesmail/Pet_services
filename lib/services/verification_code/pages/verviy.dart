@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:pet_services_app/routers/navigator.dart';
 import 'package:pet_services_app/routers/routers.dart';
@@ -17,7 +15,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var _phoneNumber;
+    var phoneNumber;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -74,11 +72,11 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                 ),
               ),
 
-              initialCountryCode: _phoneNumber?.isoCode ?? 'US',
+              initialCountryCode: phoneNumber?.isoCode ?? 'US',
 
               onChanged: (value) {
                 setState(() {
-                  _phoneNumber = value;
+                  phoneNumber = value;
                 });
               },
             ),

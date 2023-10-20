@@ -44,6 +44,12 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   flutter_slidable: ^3.0.0
   table_calendar: ^3.0.9
+  easy_stepper: 
+  enhance_stepper:
+  tuple: 
+  im_stepper: 
+  custom_rounded_rectangle_border: ^0.3.0
+  csshadow: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +83,7 @@ dev_dependencies:
   flutter_signin_button:
   pinput: 
   conditional_builder_null_safety:
+  dotted_border:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

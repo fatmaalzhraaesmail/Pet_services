@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 extension TimerFormatter on num {
   String toTimerFormatte() {

@@ -12,7 +12,8 @@ class ReservationScreen extends StatefulWidget {
 
 class _ReservationScreenState extends State<ReservationScreen> {
   DateTime today = DateTime.now();
-  late var _calendarFormat;
+  // ignore: prefer_typing_uninitialized_variables
+  var calendarFormat;
   void _onDaySelected(DateTime day, DateTime focusDay) {
     setState(() {
       today = day;
@@ -47,91 +48,89 @@ class _ReservationScreenState extends State<ReservationScreen> {
                         height: 20,
                       ),
                       // Text("Selected Day =" + today.toString().split(" ")[0]),
-                      Container(
-                        child: TableCalendar(
-                          daysOfWeekStyle: DaysOfWeekStyle(
-                            weekendStyle: TextStyle(
-                              color: Colors.pink,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                            weekdayStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
+                      TableCalendar(
+                        daysOfWeekStyle: DaysOfWeekStyle(
+                          weekendStyle: TextStyle(
+                            color: Colors.pink,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
                           ),
-
-                          calendarStyle: CalendarStyle(
-                            rangeStartTextStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                            withinRangeTextStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                            defaultTextStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                            disabledTextStyle: TextStyle(
-                              color: Colors.pink,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                            ),
-                            todayTextStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
-                            selectedTextStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                            holidayTextStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
-                            weekendTextStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
-                            //  todayDecoration:  BoxDecoration(color: Colors.white24),
-                            selectedDecoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white38,
-                            ),
-                            todayDecoration: BoxDecoration(
-                              color: Colors.transparent,
-                              shape: BoxShape.circle,
-                            ),
-                            markerDecoration: BoxDecoration(
-                              color: Colors.white24,
-                              shape: BoxShape.circle,
-                            ),
-                            //  selectedDecoration:  BoxDecoration(color: Colors.white24,borderRadius: BorderRadius.circular(22)),
+                          weekdayStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
                           ),
-                          locale: "en_US",
-                          rowHeight: 60,
-                          headerStyle: HeaderStyle(
-                              formatButtonVisible: false, titleCentered: true),
-                          availableGestures: AvailableGestures.all,
-                          focusedDay: today,
-                          firstDay: DateTime.utc(2023, 9, 22),
-                          lastDay: DateTime.utc(2040, 10, 22),
-                          onDaySelected: _onDaySelected,
-                          selectedDayPredicate: (day) => isSameDay(day, today),
-                          // calendarFormat: _calendarFormat,
-                          // onFormatChanged: (format) {
-                          //   setState(() {
-                          //     _calendarFormat = format;
-                          //   });
-                          // },
                         ),
+
+                        calendarStyle: CalendarStyle(
+                          rangeStartTextStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                          withinRangeTextStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                          defaultTextStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                          disabledTextStyle: TextStyle(
+                            color: Colors.pink,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
+                          todayTextStyle: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
+                          selectedTextStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                          holidayTextStyle: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
+                          weekendTextStyle: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
+                          //  todayDecoration:  BoxDecoration(color: Colors.white24),
+                          selectedDecoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white38,
+                          ),
+                          todayDecoration: BoxDecoration(
+                            color: Colors.transparent,
+                            shape: BoxShape.circle,
+                          ),
+                          markerDecoration: BoxDecoration(
+                            color: Colors.white24,
+                            shape: BoxShape.circle,
+                          ),
+                          //  selectedDecoration:  BoxDecoration(color: Colors.white24,borderRadius: BorderRadius.circular(22)),
+                        ),
+                        locale: "en_US",
+                        rowHeight: 60,
+                        headerStyle: HeaderStyle(
+                            formatButtonVisible: false, titleCentered: true),
+                        availableGestures: AvailableGestures.all,
+                        focusedDay: today,
+                        firstDay: DateTime.utc(2023, 9, 22),
+                        lastDay: DateTime.utc(2040, 10, 22),
+                        onDaySelected: _onDaySelected,
+                        selectedDayPredicate: (day) => isSameDay(day, today),
+                        // calendarFormat: calendarFormat,
+                        // onFormatChanged: (format) {
+                        //   setState(() {
+                        //     calendarFormat = format;
+                        //   });
+                        // },
                       )
                     ]),
                   ),

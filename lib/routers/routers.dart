@@ -24,4 +24,8 @@ abstract class Routes {
   static const String shopFeature = "shopFeature";
   static const String addNewAddress = "addNewAddress";
   static const String settings = "settings";
+  static const String cart = "cart";
+  static const String cartEdit = "cartEdit";
+  static const String shipping = "shipping";
+  static const String completeCartInfo = "completeCartInfo";
 }

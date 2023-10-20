@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pet_services_app/config/app_states.dart';
-import 'package:pet_services_app/services/home/bloc/cubit.dart';
 import 'package:pet_services_app/services/tips/bloc/cubit.dart';
 import 'package:pet_services_app/services/tips/bloc/state.dart';
-import 'package:pet_services_app/services/tips/model/recommended_tips.dart';
 import 'package:pet_services_app/services/tips/widget/popular_tips_widget.dart';
 import 'package:pet_services_app/services/tips/widget/recommended_tips.dart';
 import 'package:pet_services_app/utilities/components/search.dart';
@@ -20,11 +16,11 @@ class TipsScreen extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: MediaHelper.width,
-                  child: Row(
+            Container(
+              width: MediaHelper.width,
+              child: Stack(
+                children: [
+                  Row(
                     children: [
                       Expanded(
                         child: Container(
@@ -39,8 +35,8 @@ class TipsScreen extends StatelessWidget {
                                 image: AssetImage(
                                   'assets/images/onboarding7.jpeg',
                                 )),
-                            borderRadius:
-                                BorderRadius.only(bottomLeft: Radius.circular(50)),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(50)),
                             color: Colors.white,
                           ),
                           width: MediaQuery.of(context).size.width,
@@ -49,9 +45,9 @@ class TipsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                Search(),
-              ],
+                  Search(),
+                ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
@@ -68,7 +64,7 @@ class TipsScreen extends StatelessWidget {
                     builder: (BuildContext context, TipsStates state) {
                       TipsCubit cubit = TipsCubit.get(context);
                       return Container(
-                        // width: 60,
+                        width: MediaHelper.width,
                         height: 240,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -82,12 +78,12 @@ class TipsScreen extends StatelessWidget {
             //////
 
             Padding(
-              padding: const EdgeInsets.only(left: 15,right: 15,bottom: 8),
-              child: Stack(
-                children: [
-                  Container(
-                    width: MediaHelper.width,
-                    child: Row(
+              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 8),
+              child: Container(
+                width: MediaHelper.width,
+                child: Stack(
+                  children: [
+                    Row(
                       children: [
                         Expanded(
                           child: Container(
@@ -95,15 +91,18 @@ class TipsScreen extends StatelessWidget {
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [ Colors.black38,Colors.black54,Colors.black87,],
+                                colors: [
+                                  Colors.black38,
+                                  Colors.black54,
+                                  Colors.black87,
+                                ],
                               ),
                               image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
                                     'assets/images/dogs.jpg',
                                   )),
-                              borderRadius:
-                                  BorderRadius.circular(15),
+                              borderRadius: BorderRadius.circular(15),
                               color: Colors.white,
                             ),
                             width: MediaQuery.of(context).size.width,
@@ -112,23 +111,34 @@ class TipsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                  Positioned(
-                    top: 20,
-                    left: 20,
-                    child: Container(
-                      height: 56,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Cat and Dog',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w500),),
-                        Text('20 Take Care Tips',style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.w800),)
-                      ],
-                                      ),
-                    ))
-                ],
-
+                    Positioned(
+                        top: 20,
+                        left: 20,
+                        child: Container(
+                          height: 56,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Cat and Dog',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                '20 Take Care Tips',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w800),
+                              )
+                            ],
+                          ),
+                        ))
+                  ],
+                ),
               ),
             ),
 
@@ -143,7 +153,7 @@ class TipsScreen extends StatelessWidget {
                         child: GridView.builder(
                           padding: EdgeInsets.symmetric(vertical: 13),
                           itemCount: cubit.popularTipss.length,
-                          
+
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                                   childAspectRatio: 2/1.9,
@@ -157,8 +167,6 @@ class TipsScreen extends StatelessWidget {
                         ));
                   }),
             ),
-
-         
           ],
         ),
       ),

@@ -5,8 +5,6 @@ import 'package:pet_services_app/services/shop/bloc/shop_cubit.dart';
 import 'package:pet_services_app/services/shop/bloc/shop_state.dart';
 import 'package:pet_services_app/services/shop/model/shop_model.dart';
 import 'package:pet_services_app/utilities/theme/media.dart';
-import 'package:pet_services_app/utilities/theme/text_styles.dart';
-
 class ShopFeature extends StatefulWidget {
   @override
   State<ShopFeature> createState() => _ShopFeatureState();
@@ -33,17 +31,25 @@ class _ShopFeatureState extends State<ShopFeature> {
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          'Services',
-          style: AppTextStyles.w700.copyWith(fontSize: 20),
+          'Shop',
         ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+   
+        actions: [
+
+          Padding(
+            padding: const EdgeInsets.only(right: 6),
+            child: Icon(Icons.filter_alt_outlined),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Icon(Icons.shopping_cart_outlined,),
+          ),
+          
+        ],
       ),
       body: Column(
         children: [
@@ -204,7 +210,7 @@ class _ShopFeatureState extends State<ShopFeature> {
                                         width: 75,
                                         height: 75,
                                         child: Image.asset(
-                                          '${product.imageUrl}',
+                                          product.imageUrl,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -212,7 +218,7 @@ class _ShopFeatureState extends State<ShopFeature> {
                                         height: 8,
                                       ),
                                       Text(
-                                        '${product.name}',
+                                        product.name,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w800,
                                             fontSize: 18),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pet_services_app/utilities/theme/colors/colors.dart';
 import 'package:pet_services_app/utilities/theme/media.dart';
 import 'package:pet_services_app/utilities/theme/text_styles.dart';
 

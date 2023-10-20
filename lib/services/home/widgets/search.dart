@@ -63,12 +63,11 @@ Widget Search() {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 7),
-            child: Container(
-                child: Icon(
+            child: Icon(
               CupertinoIcons.bell,
               color: Colors.white,
               size: 27,
-            )),
+            ),
           ),
           SizedBox(
             width: 5,

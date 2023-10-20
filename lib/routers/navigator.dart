@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:pet_services_app/handlers/qr_code_scanner/qr_scanner_view.dart';
 import 'package:pet_services_app/routers/routers.dart';
 import 'package:pet_services_app/services/Login/pages/login.dart';
+import 'package:pet_services_app/services/cart/pages/cart.dart';
+import 'package:pet_services_app/services/cart/pages/cart_edit.dart';
+import 'package:pet_services_app/services/cart/pages/complete_cart.dart';
+import 'package:pet_services_app/services/cart/pages/shipping.dart';
 import 'package:pet_services_app/services/myaccount/pages/account_info.dart';
 import 'package:pet_services_app/services/myaccount/pages/add_new_address.dart';
 import 'package:pet_services_app/services/myaccount/pages/add_new_card.dart';
 import 'package:pet_services_app/services/myaccount/pages/address.dart';
 import 'package:pet_services_app/services/myaccount/pages/history.dart';
 import 'package:pet_services_app/services/myaccount/pages/settings.dart';
-import 'package:pet_services_app/services/servicesFeatures/pages/service_feature.dart';
 import 'package:pet_services_app/services/servicesFeatures/pages/services_list_page.dart';
-import 'package:pet_services_app/services/shop/pages/service_feature.dart';
 import 'package:pet_services_app/services/shop/pages/shop_list.dart';
 import 'package:pet_services_app/services/verification_code/pages/phonenumberverfication.dart';
 import 'package:pet_services_app/services/register/pages/register.dart';
@@ -84,6 +86,14 @@ class CustomNavigator {
        return _pageRoute( AddNewAddress());
       case Routes.settings:
        return _pageRoute( SettingsScreen());
+      case Routes.cart:
+       return _pageRoute( CartScreen());
+      case Routes.cartEdit:
+       return _pageRoute( CartEditScreen());
+      case Routes.shipping:
+       return _pageRoute( ShippingScreen());
+      case Routes.completeCartInfo:
+       return _pageRoute( CompletedCartInfo());
 
     }
     return MaterialPageRoute(builder: (_) => Container());
