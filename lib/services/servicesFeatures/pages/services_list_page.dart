@@ -33,17 +33,28 @@ class _ServicesPageState extends State<ServicesPage> {
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
+            // color: Colors.black,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
           'Services',
-          style: AppTextStyles.w700.copyWith(fontSize: 20),
+          // style: AppTextStyles.w700.copyWith(fontSize: 20),
         ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        // centerTitle: true,
+        // backgroundColor: Colors.transparent,
+        // elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 14),
+            child: GestureDetector(
+              onTap: (){},
+              child: Icon(Icons.shopping_cart_outlined,
+              // size: 26,
+              ),
+            ),
+          )
+        ],
       ),
       body: Column(
         children: [
@@ -181,7 +192,7 @@ class _ServicesPageState extends State<ServicesPage> {
                                                   ]),
                                                   image: DecorationImage(
                                                       image: AssetImage(
-                                                          '${product.imageUrl}'),
+                                                          product.imageUrl),
                                                       fit: BoxFit.cover),
                                                 ),
                                               ),
@@ -212,7 +223,7 @@ class _ServicesPageState extends State<ServicesPage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            '${product.name}',
+                                            product.name,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w800,
                                                 fontSize: 20),

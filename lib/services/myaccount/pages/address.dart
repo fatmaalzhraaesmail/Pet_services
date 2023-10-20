@@ -36,7 +36,7 @@ class _AddressState extends State<Address> {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 CustomNavigator.push(Routes.addNewAddress);
               },
               child: Icon(
@@ -58,7 +58,7 @@ class _AddressState extends State<Address> {
                 SizedBox(
                   height: 12,
                 ),
-                BlocProvider(
+                 BlocProvider(
                     create: (BuildContext context) => CompleteProfileCubit(),
                     child: BlocConsumer<CompleteProfileCubit,
                             CompleteProfileStates>(

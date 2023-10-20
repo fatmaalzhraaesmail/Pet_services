@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_services_app/services/shop/bloc/shop_cubit.dart';
-import 'package:pet_services_app/services/shop/pages/service_feature.dart';
 import 'package:pet_services_app/services/shop/pages/shop_list.dart';
 
 import '../../../routers/navigator.dart';

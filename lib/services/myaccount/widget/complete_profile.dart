@@ -3,7 +3,7 @@ import 'package:pet_services_app/services/myaccount/model/complete_profile.dart'
 
 Widget CompleteProfileWidget(
     BuildContext context, CompleteProfile completeProfile) {
-  return InkWell(
+  return GestureDetector(
     onTap: completeProfile.route,
     child: Padding(
       padding: const EdgeInsets.only(left: 12, top: 8, bottom: 8),

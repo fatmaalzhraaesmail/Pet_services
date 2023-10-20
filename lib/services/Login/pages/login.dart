@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_services_app/routers/navigator.dart';
 import 'package:pet_services_app/routers/routers.dart';
-import 'package:pet_services_app/utilities/components/component.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:pet_services_app/utilities/components/custom_btn.dart';
 import 'package:pet_services_app/utilities/components/fields/text_input_field.dart';
 import 'package:pet_services_app/utilities/components/social_button.dart';
@@ -173,36 +169,34 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )),
 
-            Container(
-                      // alignment: Alignment.center,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          // crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                        Text(
-                          'You don\'t have account? ',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            // decoration: TextDecoration.underline,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            CustomNavigator.push(Routes.register);
-                          },
-                          child: Text(
-                            'Sign Up ',
-                            style: TextStyle(
-                              color: Colors.amber[600],
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17,
-                              // decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ),
-                      ])),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+              Text(
+                'You don\'t have account? ',
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  // decoration: TextDecoration.underline,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  CustomNavigator.push(Routes.register);
+                },
+                child: Text(
+                  'Sign Up ',
+                  style: TextStyle(
+                    color: Colors.amber[600],
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
+                    // decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ]),
                       SizedBox(height: 16,)
           ],
         ),

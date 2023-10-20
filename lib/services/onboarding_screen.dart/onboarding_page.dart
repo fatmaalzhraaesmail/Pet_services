@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pet_services_app/routers/navigator.dart';
 import 'package:pet_services_app/routers/routers.dart';
-import 'package:pet_services_app/utilities/theme/colors/colors.dart';
+import 'package:pet_services_app/utilities/components/custom_btn.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final int _numPages = 3;
+ final int _numPages = 3;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
@@ -67,7 +67,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         Container(
                           height: MediaQuery.of(context).size.height-100,
                           child: PageView(
-                            physics: ClampingScrollPhysics(),
+                            allowImplicitScrolling: false,
+                            physics: BouncingScrollPhysics(),
                             controller: _pageController,
                             onPageChanged: (int page) {
                               setState(() {
@@ -163,14 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     ),
                                   ),
                                 ],
-                              ),
-        
-        
-        
-        
-        
-        
-                              
+                              ),                  
                               // 2 onboarding
                               Stack(
                                 children: <Widget>[
@@ -283,7 +277,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                         colorBlendMode: BlendMode.dstIn,
                                         fit: BoxFit.cover,
                                         height: 560.0,
-                                        //  width: 700,
                                       ),
                                     ),
                                   ),
@@ -391,35 +384,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
       bottomSheet: _currentPage == _numPages - 1
-          ? Container(
-              color: Colors.white,
-              child: Container(
-                height: 50.0,
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                decoration: BoxDecoration(
-                    color: Colors.amber[600],
-                    borderRadius: BorderRadius.circular(15)),
-                child: GestureDetector(
-                  onTap: () {
-                     CustomNavigator.push(Routes.login);
-                  },
-                  child: Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 5.0),
-                      child: Text(
-                        'Get started',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            )
+      ?Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+        child: CustomBtn(
+          buttonColor: Colors.amber,
+          text: 'Get started',
+          fontSize: 20.0,
+          height: 56,
+         
+          onTap: () {
+            CustomNavigator.push(Routes.login);
+          },
+        ),
+      )
+        
           : Text(''),
     );
   }

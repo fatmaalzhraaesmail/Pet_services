@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pet_services_app/services/home/model/top_services.dart';
 
 Widget TopServicesWidget(BuildContext context, TopServices service) {
-  bool iconn = false;
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
@@ -123,7 +122,6 @@ Widget TopServicesWidget(BuildContext context, TopServices service) {
                                 ),
                                 onRatingUpdate: (rating) {
                                   
-                                  iconn = true;
                                   
                                   print(rating);
                                 },

@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hexcolor/hexcolor.dart';
 
-import '../../../handlers/icon_handler.dart';
-import '../../theme/text_styles.dart';
 
 class TextInputField extends StatefulWidget {
   TextInputField({
